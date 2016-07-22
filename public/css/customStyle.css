@@ -1,0 +1,22 @@
+.wellId{
+	height: 200px;
+	margin-top: 50px;
+}
+.navbar{
+	height: 50px;
+}
+img{
+	width: 200px;
+	height: 250px;
+}
+tr td{
+		color: green;
+		font-family: sans-serif;
+}
+#searchInput{
+	width: 100%;
+	height: 40px;
+}
+#update{
+	margin-right: 20px;
+}
