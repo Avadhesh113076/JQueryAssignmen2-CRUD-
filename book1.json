@@ -1,37 +1,10 @@
 {
   "book": [
     {
-      "id": 100,
-      "bookName": "Memoirs of a Geisha ",
-      "price": "$3,831.29",
-      "publisherName": "Meredith Mitchell",
-      "email": "meredithmitchell@fuelton.com",
-      "phone": "+1 (858) 492-2748",
-      "published": "2016-03-04T09:20:12 -06:-30"
-    },
-    {
-      "id": 101,
-      "bookName": "The Red Tent",
-      "price": "$2,084.67",
-      "publisherName": "Watts Mercer",
-      "email": "wattsmercer@fuelton.com",
-      "phone": "+1 (826) 444-3466",
-      "published": "2014-06-03T08:08:53 -06:-30"
-    },
-    {
-      "id": 102,
-      "bookName": "Gone with the Wind ",
-      "price": "$2,786.03",
-      "publisherName": "Gilbert Bryan",
-      "email": "gilbertbryan@fuelton.com",
-      "phone": "+1 (904) 439-3583",
-      "published": "2014-08-17T12:17:24 -06:-30"
-    },
-    {
       "id": 103,
       "bookName": "Gone with the Wind ",
       "price": "$2,284.02",
-      "publisherName": "Della Chen",
+      "publisherName": "Della",
       "email": "dellachen@fuelton.com",
       "phone": "+1 (954) 550-2314",
       "published": "2015-02-22T08:20:33 -06:-30"
@@ -62,24 +35,6 @@
       "email": "cunninghamrowland@fuelton.com",
       "phone": "+1 (951) 407-2279",
       "published": "2016-04-23T06:01:20 -06:-30"
-    },
-    {
-      "id": 107,
-      "bookName": "The Red Tent",
-      "price": "$1,480.90",
-      "publisherName": "Dudley Anderson",
-      "email": "dudleyanderson@fuelton.com",
-      "phone": "+1 (861) 547-2638",
-      "published": "2014-04-03T07:51:17 -06:-30"
-    },
-    {
-      "id": 108,
-      "bookName": "Memoirs of a Geisha ",
-      "price": "$2,002.96",
-      "publisherName": "Harvey Mayer",
-      "email": "harveymayer@fuelton.com",
-      "phone": "+1 (876) 451-2622",
-      "published": "2014-11-25T07:56:45 -06:-30"
     },
     {
       "id": 109,
@@ -14572,15 +14527,6 @@
       "published": "2015-11-12T06:50:55 -06:-30"
     },
     {
-      "id": 1719,
-      "bookName": "Gone with the Wind ",
-      "price": "$2,723.83",
-      "publisherName": "Dina Fletcher",
-      "email": "dinafletcher@fuelton.com",
-      "phone": "+1 (997) 559-3177",
-      "published": "2014-07-24T12:46:27 -06:-30"
-    },
-    {
       "id": 1720,
       "bookName": "Indian Books - Fiction",
       "price": "$3,526.07",
@@ -18872,51 +18818,6 @@
       "email": "rosariomclean@fuelton.com",
       "phone": "+1 (987) 459-3194",
       "published": "2015-04-29T09:08:10 -06:-30"
-    },
-    {
-      "id": 2197,
-      "bookName": "Memoirs of a Geisha ",
-      "price": "$2,325.06",
-      "publisherName": "Cara Warner",
-      "email": "carawarner@fuelton.com",
-      "phone": "+1 (956) 588-2006",
-      "published": "2014-09-19T11:38:09 -06:-30"
-    },
-    {
-      "id": 2198,
-      "bookName": "Gone with the Wind ",
-      "price": "$1,716.41",
-      "publisherName": "Hannah Salas",
-      "email": "hannahsalas@fuelton.com",
-      "phone": "+1 (966) 465-2525",
-      "published": "2016-06-02T10:44:11 -06:-30"
-    },
-    {
-      "id": 2199,
-      "bookName": "The Red Tent",
-      "price": "$2,201.50",
-      "publisherName": "Katy Prince",
-      "email": "katyprince@fuelton.com",
-      "phone": "+1 (838) 525-2574",
-      "published": "2015-09-14T11:17:08 -06:-30"
-    },
-    {
-      "id": 2200,
-      "bookName": "Gone with the Wind ",
-      "price": "$3,928.88",
-      "publisherName": "Lynch Osborn",
-      "email": "lynchosborn@fuelton.com",
-      "phone": "+1 (866) 470-2344",
-      "published": "2015-05-19T03:37:40 -06:-30"
-    },
-    {
-      "bookName": "a",
-      "price": "a",
-      "publisherName": "a",
-      "email": "a",
-      "phone": "a",
-      "published": "a",
-      "id": 2201
     }
   ]
 }
