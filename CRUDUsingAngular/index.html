@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html ng-app="myModel">
+
+<head>
+    <title>Omdb Api</title>
+    <meta charset="utf-8">
+    <!-- Mobile viewport optimized -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- AngularJs -->
+    <script src="Js/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+    <!-- Custom CSS -->
+    <link href="css/customStyle.css" rel="stylesheet">
+</head>
+
+<body ng-controller="myController">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Json</a>
+                    </li>
+                    <li>
+                        <a href="#">CRUD</a>
+                    </li>
+                </ul>
+                <!-- end nav -->
+            </div>
+            <!-- end nav-collapse -->
+        </div>
+        <!-- end of container -->
+    </div>
+    <!-- end of nav-bar -->
+    <div class="container">
+        <div class="well wellId">
+            <div class="page-header">
+                <h1>Search by Book Title</h1>
+            </div>
+            <!-- end page-header -->
+            <form class="navbar-form">
+                <section class="col-sm-7">
+                    <input type="text"="form-control" placeholder="Search for books" id="searchInput" ng-model="searchText">
+                </section>
+                <section class="col-sm-3">
+                    <button class="btn btn-info" type="button" ng-model="filter" ng-click="filterHint()">Click to Filter Book Database</button>
+                </section>
+                <section class="col-sm-2">
+                    <button class="btn btn-success" href="#" data-toggle="modal" type="button" ng-click="addTable()">Create New Record</button>
+                </section>
+            </form>
+            <!-- end nav form -->
+        </div>
+        <!-- end of well -->
+        <div id="addNewRecord" ng-model="addRecord">
+            <table class="table table-striped" ng-show="addRecord">
+                <tbody>
+                    <tr>
+                        <td>BookName</td>
+                        <td>
+                            <input type="text" ng-model="bookName" id="fullWidth">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td>
+                            <input type="text" ng-model="price" id="fullWidth">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Author</td>
+                        <td>
+                            <input type="text" ng-model="publisherName" id="fullWidth">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>
+                            <input type="email" ng-model="email" id="fullWidth">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>
+                            <input type="text" ng-model="phone" id="fullWidth">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Published</td>
+                        <td>
+                            <input type="text" ng-model="published" id="fullWidth">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <button class="btn btn-primary" ng-click="add()" ng-show="showButton" type="button">Add</button>
+                            <button class="btn btn-success" ng-click="save()" ng-hide="showButton" type="button">Save</button>
+                            <button class="btn btn-default" ng-click="close()" type="button">Close</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <!-- end table body -->
+            </table>
+            <!-- end table-stripped -->
+        </div>
+        <!-- end addNewRecord div  -->
+    </div>
+    <!-- end container -->
+    <div class="container-fluid">
+        <div class="alert" ng-show="alertShow">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Hint!</strong> Click on table headers to Filter,Up arrow indicates ascending order of data and down arrow indicates decending order of data.
+        </div>
+        <!-- end of alert -->
+        <div id="display">
+            <form action="#" class="navbar-form">
+                <table class="table table-striped" id="info">
+                    <thead>
+                        <tr>
+                            <th ng-click="sortData('id')">Bookid
+                                <div ng-class="getSortClass('id')"></div>
+                            </th>
+                            <th ng-click="sortData('bookName')">BookName
+                                <div ng-class="getSortClass('bookName')"></div>
+                            </th>
+                            <th ng-click="sortData('price')">Price
+                                <div ng-class="getSortClass('price')"></div>
+                            </th>
+                            <th ng-click="sortData('publisherName')">PubName
+                                <div ng-class="getSortClass('publisherName')"></div>
+                            </th>
+                            <th ng-click="sortData('email')">email
+                                <div ng-class="getSortClass('email')">
+                            </th>
+                            <th ng-click="sortData('phone')">phone
+                                <div ng-class="getSortClass('phone')">
+                            </th>
+                            <th ng-click="sortData('published')">Published
+                                <div ng-class="getSortClass('published')">
+                            </th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="book in myData | orderBy:sortColumn:reverseSort |filter:searchText">
+                            <td>{{book.id}}</td>
+                            <td>{{book.bookName}}</td>
+                            <td>{{book.price}}</td>
+                            <td>{{book.publisherName}}</td>
+                            <td>{{book.email}}</td>
+                            <td>{{book.phone}}</td>
+                            <td>{{book.published}}</td>
+                            <td>
+                                <button class="btn btn-info" ng-click="update(book.id)">Update</button>
+                                <button class="btn btn-danger" ng-click="delete(book.id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- end table-stripped -->
+            </form>
+            <!-- end nav-form -->
+            <ul class="pager">
+                <li>
+                    <button class="btn btn-info" ng-click="previous()">Prev</button>
+                </li>
+                <li>
+                    <button class="btn btn-info" ng-click="next()">Next</button>
+                </li>
+            </ul>
+            </div>
+            <!-- end display div  -->
+            </div>
+            <!-- end container fluid -->
+            <!--  Controller Script -->
+            <script src="Js/script.js"></script>
+</body>
+<!-- end body -->
+
+</html>

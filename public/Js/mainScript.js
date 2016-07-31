@@ -13,8 +13,8 @@
 	            },
 	            /* End of Error Function*/
 	            success: function(data) {
+	            	 $('#info').hide();
 	                var count = 1;
-	                $('#info').hide();
 	                for (var i = 0; i < data.length; i++) {
 	                    var addRow = '<tr><td>' + data[i].id + '</td><td>' + data[i].bookName + '</td><td>' + data[i].price + '</td><td>' + data[i].publisherName + '</td><td>' + data[i].email + '</td><td>' + data[i].phone + '</td><td>' + data[i].published +
 	                        '</td><td>' +
@@ -105,23 +105,32 @@
 	}); /*End of ready function*/
 
 	$(document).ready(function() {
-	    $.ajax({
+
+		var start=0;
+		$('#prev').click(function(){
+			$('#info').empty();
+			start=start-100;
+			getData(start);
+		});
+		$('#next').click(function(){
+			$('#info').empty();
+			start=start+100;
+			getData(start);
+		});	
+		getData(start);
+		function getData(start){
+			$.ajax({
 	        type: "GET",
-	        url: ' http://localhost:8080/book',
+	        url: ' http://localhost:8080/book?_start='+start+'&_limit=100',
 	        error: function() {
 	            $('#info').html('<p>An error has occurred</p>');
 	        },
 	        /* End of Error Function*/
 	        success: function(data) {
-	            var index = 1,
-	                count = 1,
-	                check = 0;
+
+	            var index = 1; 
 	            for (var i = 0; i < data.length; i++) {
-	                if (i >= (data.length) / 2 && check == 0) {
-	                    count++;
-	                    check++;
-	                }
-	                var addRow = '<tr id="id' + count + '"><td>' + data[i].id + '</td><td>' + data[i].bookName + '</td><td>' + data[i].price + '</td><td>' + data[i].publisherName + '</td><td>' + data[i].email + '</td><td>' + data[i].phone + '</td><td>' + data[i].published +
+	                var addRow = '<tr><td>' + data[i].id + '</td><td>' + data[i].bookName + '</td><td>' + data[i].price + '</td><td>' + data[i].publisherName + '</td><td>' + data[i].email + '</td><td>' + data[i].phone + '</td><td>' + data[i].published +
 	                    '</td><td>' +
 	                    '<button href="#myModal2" data-toggle="modal"' +
 	                    'class="btn btn-info" id="up' + index + '">Update</button>' +
@@ -154,6 +163,9 @@
 	            } /*End of for loop*/
 	        } /*End of outer success*/
 	    }); /*end of outer ajax*/
+		}
+		
+	    
 	    /*Start of update button of myModal2*/
 	    $('button#update').click(function() {
 	        var id = parseInt($('div#myModal2 div.modal-body input#inputId').val());
