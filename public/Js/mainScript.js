@@ -26,9 +26,7 @@
 	                }
 	            }
 	        });
-
-
-	    });
+	    }); /*End of filter*/
 	    $("button#searchButton").click(function() {
 	        var search = $("#searchInput").val(),
 	            flag = 0;
